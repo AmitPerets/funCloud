@@ -1,0 +1,43 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<style>
+  body {
+    background-color: #212529;
+  }
+</style>
+
+<div
+  class="main d-flex flex-column justify-content-center align-items-center bg-dark"
+  style="height: 480px"
+>
+  <div
+    class="form-container d-flex flex-column justify-content-center align-items-center"
+    style="
+      background-color: #edf2f4;
+      border-radius: 15px;
+      width: 319px;
+      height: 319px;
+    "
+  >
+    <h2 class="fw-bold mb-4 text-uppercase bg-dark">Welcome {{ options.name }}</h2>
+    <button
+      class="btn m-2"
+      onclick="start()"
+      style="background-color: #17a2b8; color: white"
+    >
+      Start
+    </button>
+    {% if options.admin %}
+    <button
+      class="btn m-2"
+      onclick="console.log('login as admin')"
+      style="background-color: #17a2b8; color: white"
+    >
+      Admin
+    </button>
+    {% endif %}
+  </div>
+</div>
