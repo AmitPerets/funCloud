@@ -2,17 +2,19 @@ var question
 (async function gen() {
   var question_div = document.getElementById('questionDiv');
   question = await callJson('generate_question');
-
+  if (question == null){
+    call('view_timeline')
+  }
   const label = document.createElement('label');
   label.setAttribute('for', 'questionDiv');
   label.textContent = question.title;
   question_div.appendChild(label);
-  for (i in [0, 1, 2, 3]) {
+  for (let i = 1; i <= 4;i++) {
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.setAttribute('id', `Option${i}`)
     button.setAttribute('onclick', `checkAnswer(${button.id},${question.correct})`);
-    button.textContent = `${question.answers[i]}`;
+    button.textContent = `${question["Option"+i]}`;
     question_div.appendChild(button);
   }
 })();
@@ -21,18 +23,16 @@ async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct)
   if (btn == correct_btn) {
     btn.style = "background-color:green";
-    await call('submit_question', question['title'], question['answers'][question['correct']], true);
-    await sleep(1000);
-    view_page('rightAnswer');
-    await sleep(1000);
+    await call('submit_question', question['title'], question['Option'+correct], true);
+    view_page('answer', { "answer": 'Your answer is correct!' });
+    await sleep(2000);
   }
   else {
     btn.style = "background-color:red";
     correct_btn.style = "background-color:green";
-    await call('submit_question', question['title'], question['answers'][question['correct']], false);
-    await sleep(1000);
-    view_page('wrongAnswer');
-    await sleep(1000);
+    await call('submit_question', question['title'], question['Option'+correct], false);
+    view_page('answer', { "answer": 'Your answer is wrong!' });
+    await sleep(2000);
   }
 
     
@@ -49,3 +49,10 @@ function sleep (time) {
   progressBar.setAttribute("aria-valuenow", prog);
 })();
   
+function logout() {
+  view_page('login')
+  call('db.logout')
+}
+function end() {
+  call('view_timeline')
+}
