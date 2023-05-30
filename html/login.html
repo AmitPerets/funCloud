@@ -3,104 +3,108 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <style>
   body {
     background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
   }
 
-  .container {
+  #main {
+    background-color: #f2f2f2;
+  }
+
+  p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .logo img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group input {
+    width: 324px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-container {
     background-color: white;
+    display: flex;
     width: 940px;
     height: 580px;
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    align-items: center;
+  }
+
+  .child {
+    width: 50%;
+    text-align: center;
+
+  }
+
+  .child.content p {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+  }
+
+  .child.img {
+    height: 100%;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    background-image: url('https://i.ibb.co/vzY1cTj/2718229.jpg');
+    background-size: cover;
+  }
+  .child.img h1{
+    font-weight: bold;
+    color:white;
     position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
-
-  .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .logo img {
-    max-width: 300px;
-    max-height: 150px;
-    width: auto;
-    height: auto;
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #ba03fc;
-    text-align: center;
-  }
-
-  .form-group button {
-    width: 90%;
-    padding: 10px;
-    background-color: #1d3557;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-
-  .form-group button:hover {
-    background-color: #ba03fc;
-  }
-
-
-  #logout-btn {
-    position: absolute;
-    top: 5%;
-    left: 95%;
-  }
-
   img {
-    width: 180px;
-    height: auto;
-    padding-bottom: 20px;
-    position: relative;
-    top: 18%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width:180px;
+    height:auto;
+    padding-bottom:20px;
   }
-
-  .finish-btn {
-    display: block;
-    margin: 10px auto;
-    background-color: #ba03fc;
-    color: white;
-    width: auto;
-  }
-
 </style>
-<div id="main" style="height: 680px">
-  <div class="container">
-    <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <form>
-      <div id="questionDiv" class="form-group"></div>
-    </form>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 0%;background-color:#ba03fc" aria-valuenow="0"
-        aria-valuemin="0" aria-valuemax="100"></div>
+
+<div id="main" class="d-flex flex-column justify-content-center align-items-center" style="height: 680px">
+  <div class="main-container">
+    <div class="child img">
     </div>
-    <button type="button" class="btn finish-btn" onclick="end()">Finish</button>
+    <div class="child content">
+      <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+      <p>Welcome to the Google Colab Trivia Game! 
+        Test your knowledge of Google Colab, a popular cloud-based notebook
+        environment for Python programming.
+        Answer each question correctly to earn points and demonstrate your expertise in using this powerful tool.</p>
+      <div class="form-group">
+        <input type="text" class="form-control" id="user-name" placeholder="Username"/>
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="user-pass" placeholder="Password"/>
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn" onclick="login()" style="background-color:#1d3557;color:white;">Submit</button>
+        <p id="err-msg" style="color: red"></p>
+      </div>
+    </div>
   </div>
 </div>
