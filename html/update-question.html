@@ -11,38 +11,71 @@
     background-color: #f2f2f2;
   }
 
-  .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .logo img {
-    width: 300px;
-    height: 200px;
+  .main-container {
+    background-color: white;
+    width: 940px;
+    height: 580px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
+    position: relative;
+    ;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   #submit_btn {
     margin-top: 10px;
   }
+
   #dropdown-btn {
     margin-bottom: 5px;
+    background-color: #ba03fc;
+    color: white;
+    position: fixed;
+    left: 42%;
   }
-  li { background: white; }
-li:nth-child(odd) { background: #f2f2f2; }
+
+  img {
+    width: 180px;
+    height: auto;
+    padding-bottom: 20px;
+    position: relative;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .colored-part {
+    background-color: #1d3557;
+  }
+
+  li {
+    background: white;
+  }
+
+  li:nth-child(odd) {
+    background: #f2f2f2;
+  }
 </style>
 
-<div id="main-container" class="main d-flex flex-column justify-content-center align-items-center"
-  style="height: 100%;width:100%;background-color:#f2f2f2;">
-    <div class="logo">
-      <img src="https://i.ibb.co/Mk2SN1b/FUN-removebg-preview.png" alt="Company Logo">
-    </div>
-    <div id="dropdown_id" class="dropdown">
-      <button id="dropdown-btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+<div id="main" style="height: 680px">
+  <div class="main-container">
+    <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
+    <div class="colored-part">
+      <p> ""</p>
+      <div id="dropdown_id" class="dropdown">
+        <button id="dropdown-btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Select question
         </button>
-      <ul id="dropdown-list" class="dropdown-menu">
-
-      </ul>
+        <ul id="dropdown-list" class="dropdown-menu">
+        </ul>
+      </div>
+      <p> ""</p>
+      <p> ""</p>
+      <p> ""</p>
+      <p> ""</p>
     </div>
   </div>
+</div>
