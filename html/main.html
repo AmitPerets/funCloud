@@ -16,6 +16,7 @@
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
     position: relative;
+;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -40,19 +41,31 @@
   .panel-btn {
     width: 200px;
     height: 100px;
-    background-color:white;
+    background-color: white;
   }
-  .btn{
-    color:white;
+
+  .btn {
+    color: white;
   }
-  #start-btn{
-      background-color: #3B71CA;
+
+  .btns-part {
+    background-color: #1d3557;
   }
-  #edit-btn{
-    background-color: #14A44D;
+
+  .empty-part {
+    background-color: #03bafc;
   }
-  #add-btn{
-    background-color:#54B4D3;
+
+  #start-btn {
+    background-color: #8c03fc;
+  }
+
+  #edit-btn {
+    background-color: #fc03f4;
+  }
+
+  #add-btn {
+    background-color: #03cefc;
   }
 </style>
 
@@ -60,19 +73,28 @@
   <div class="main-container">
     <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <h1 class="fw-bold mb-3 text-uppercase" style="background-color: #17a2b8; color: white; text-align: center;">
-      Welcome {{ options.name }}</h1>
-    <div class="row my-2">
-      <button id="start-btn" class="btn panel-btn mx-auto" onclick="start()"><i
-                    class="fa-solid fa-play"></i>Start</button>
+    <div class="btns-part">
+      <h1 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;">
+        Welcome {{ options.name }}</h1>
+      {% if not options.admin %}
+      <h2 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;">
+        Are you ready to play? </h2>
+      {% endif %}
+      <div class="row my-2">
+        <button id="start-btn" class="btn panel-btn mx-auto" onclick="start()"><i class="fa-solid fa-play"></i>Start</button>
+      </div>
+      {% if not options.admin %}
+      <p>""</p>
+      {% endif %}
+      {% if options.admin %}
+      <div class="row my-2">
+        <button id="edit-btn" class="btn panel-btn mx-auto" onclick="view_page('update-question')"><i class="fa-regular fa-pen-to-square"></i>Edit Questions</button>
+      </div>
+      <div class="row my-2">
+        <button id="add-btn" class="btn panel-btn mx-auto" onclick="view_page('add-question')"><i class="fa-solid fa-plus"></i>Add New Question</button>
+      </div>
+      <p>""</p>
+      {% endif %}
     </div>
-    {% if options.admin %}
-    <div class="row my-2">
-      <button id="edit-btn" class="btn panel-btn mx-auto" onclick="view_page('update-question')"><i class="fa-regular fa-pen-to-square"></i>Edit Questions</button>
-    </div>
-    <div class="row my-2">
-      <button id="add-btn" class="btn panel-btn mx-auto" onclick="view_page('add-question')"><i class="fa-solid fa-plus"></i>Add New Question</button>
-    </div>
-    {% endif %}
   </div>
 </div>
