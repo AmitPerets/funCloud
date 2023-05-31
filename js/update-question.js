@@ -105,3 +105,8 @@ function input_changed(element){
 var value = element.value
  document.getElementById(element.id.toLowerCase()).textContent = value
 }
+
+function logout() {
+  view_page('login')
+  call('db.logout')
+}
