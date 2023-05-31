@@ -2,10 +2,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
   integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-  integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   body {
     background-color: #f2f2f2;
@@ -14,11 +14,10 @@
   }
 
   img {
-    width: 180px;
+    width: 120px;
     height: auto;
     padding-bottom: 20px;
     position: relative;
-    left: 8% transform: translate(-50%, -50%);
   }
 
   .colored-part {
@@ -88,7 +87,17 @@
     outline-color: rgba(255, 62, 48, 0.9);
   }
 
-
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    background-color:#d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor:pointer;
+  }
   .text {
     color: white; /* Set the text color to white */
   }
@@ -96,13 +105,14 @@
 
 <div id="main" style="height: 680px">
   <div class="main-container">
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-    <div class="colored-part">
+    <div class="colored-part overflow-auto">
       <h1 class="display-6">Question Timeline</h1>
       <div class="timeline-container" style="background-color" :"#f2f2f2">
         {% for i in range(options|length) %} {% set
         question = options[i] %}
-        {% if i % 10 == 0 %}
+        {% if i % 7 == 0 %}
         {% if not loop.first %}
       </div>
       {% endif %}
@@ -123,7 +133,8 @@
       {% endfor %}
     </div>
     <p class="text">Hover to see question and correct answerst</p>
-    <button type="button" class="btn btn-info back" onclick="back()" style="background-color:#8c03fc;color:white;margin-bottom:50px;">Back to main</button>
+    <button type="button" class="btn" onclick="view_page('graph')" style="background-color:#8c03fc;color:white;margin-bottom:50px;">View Graph</button>
+    <button type="button" class="btn back" onclick="back()" style="background-color:#8c03fc;color:white;margin-bottom:50px;">Back to main</button>
   </div>
 </div>
 <script>
