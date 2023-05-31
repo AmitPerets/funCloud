@@ -15,3 +15,8 @@ async function addQuestion() {
   var result = await call('db.addQuest', data)
   console.log(result)
 }
+
+function logout() {
+  view_page('login')
+  call('db.logout')
+}
