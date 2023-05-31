@@ -1,8 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+  integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
   integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+
 <style>
   body {
     background-color: #f2f2f2;
@@ -16,7 +22,7 @@
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.233);
     position: relative;
-    left: 50%;
+    left: 30%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
@@ -45,8 +51,12 @@
     flex: 0 0 30%;
   }
 
-  .colored-part {
-    background-color: #1d3557;
+
+
+    .colored-part {
+    background-color: #1d3557; /* Change the background color here */ 
+    border-radius: 15px;
+    padding: 20px;
   }
 
   .form-group select,
@@ -67,9 +77,9 @@
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-      margin-left: auto;
-  margin-right: auto;
-  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 
   .form-group button.delete {
@@ -80,16 +90,17 @@
     background-color: #3071a9;
   }
 
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+  }
+
+
   h3 {
     margin-top: 0;
     color: #8c03fc;
     text-align: center;
-  }
-  
-    #logout-btn {
-    position: absolute;
-    top: 5%;
-    left: 95%;
   }
 </style>
 
