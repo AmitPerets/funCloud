@@ -58,14 +58,17 @@
 
   #start-btn {
     background-color: #8c03fc;
+    font-family: cursive;
   }
 
   #edit-btn {
     background-color: #fc03f4;
+    font-family: cursive;;
   }
 
   #add-btn {
     background-color: #03cefc;
+    font-family: cursive;
   }
 </style>
 
@@ -74,10 +77,10 @@
     <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
     <div class="btns-part">
-      <h1 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;">
+      <h1 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;font-family: cursive;">
         Welcome {{ options.name }}</h1>
       {% if not options.admin %}
-      <h2 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;">
+      <h2 class="fw-bold mb-3 text-uppercase" style="background-color: #1d3557; color: white; text-align: center;font-family: cursive;">
         Are you ready to play? </h2>
       {% endif %}
       <div class="row my-2">
