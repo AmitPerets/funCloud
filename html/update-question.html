@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
-  integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
   integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
+  integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
 <style>
-  .body {
+  body {
     background-color: #f2f2f2;
   }
 
@@ -49,6 +51,19 @@
     background-color: #1d3557;
   }
 
+  #back-btn {
+    position: absolute;
+    top: 85%;
+    left: 19%;
+  }
+
+  #logout-btn {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+  }
+
+
   li {
     background: white;
   }
@@ -60,6 +75,7 @@
 
 <div id="main" style="height: 680px">
   <div class="main-container">
+     <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
     <div class="colored-part">
       <p> ""</p>
