@@ -18,17 +18,20 @@ var question;
 
 async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct);
-  if (btn === correct_btn.id) {
+  var type;
+  if (btn.id === correct_btn.id) {
     btn.style.backgroundColor = "green";
-    await call('submit_question', question.title, question['Option' + correct], true);
+    type = "correct-answer";
   } else {
     btn.style.backgroundColor = "red";
     correct_btn.style.backgroundColor = "green";
-    await call('submit_question', question.title, question['Option' + correct], false);
+    type = "wrong-answer";
   }
+  await call('submit_question', question.title, question['Option' + correct], type);
   await sleep(1000);
   view_page('question');
 }
+
 
 function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
