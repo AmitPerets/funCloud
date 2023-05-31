@@ -96,6 +96,12 @@
     position: absolute;
     top: 5%;
     left: 95%;
+    background-color: #d9534f;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
 
@@ -103,43 +109,69 @@
     color: #8c03fc;
     position: fixed;
     bottom: 70%;
-    text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15)
+    margin-right: 20px;
+    font-family: cursive;
+  }
+
+  .home-btn {
+    position: absolute;
+    top: 5%;
+    left: 7%;
+    background-color: #1d3557;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
   }
 </style>
 
 <div id="main" style="height: 680px">
-  <div class="container">
-    <button id="logout-btn" type="button" class="btn btn-danger" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+  <div id="main-container" class="container">
+    <i class="home-btn fa-solid fa-house" onclick="back()"></i>
+    <i class="help-btn fa-solid fa-square-question"></i>
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
     <div style="display: flex; align-items: center; justify-content: space-between;">
       <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
-      <h4 style="margin-right: 20px;">Add New Question:</h4>
+      <h4>Add New Question:</h4>
     </div>
     <div class="colored-part">
       <div class="form-group">
         <label for="question">Question:</label>
-        <input type="text" id="question" />
+        <input type="text" id="question" required>
       </div>
 
       <div class="form-group">
         <label for="answer1">Answer 1:</label>
-        <input type="text" id="answer1"/>
+        <input type="text" id="answer1" required>
       </div>
 
       <div class="form-group">
         <label for="answer2">Answer 2:</label>
-        <input type="text" id="answer2"/>
+        <input type="text" id="answer2" required>
       </div>
 
       <div class="form-group">
         <label for="answer3">Answer 3:</label>
-        <input type="text" id="answer3"/>
+        <input type="text" id="answer3" required>
       </div>
 
       <div class="form-group">
         <label for="answer4">Answer 4:</label>
-        <input type="text" id="answer4"/>
+        <input type="text" id="answer4" required>
       </div>
-
       <div class="form-group">
         <label for="correct">Correct Answer:</label>
         <select id="correct">
@@ -150,8 +182,8 @@
                 </select>
       </div>
     </div>
-    <div class="form-group">
-      <button type="button" onclick="addQuestion()">Submit</button>
+    <div class="form-group pb-2">
+      <button type="submit" onclick="addQuestion()">Submit</button>
     </div>
   </div>
 </div>
