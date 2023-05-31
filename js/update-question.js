@@ -47,7 +47,7 @@ async function button_clicked(title) {
     answer_input.setAttribute('class', 'answers form-control')
     answer_input.setAttribute('id', 'Option' + i)
     answer_input.value = question["Option" + i]
-    answer_input.setAttribute('oninput',`input_changed(${answer_input.id})`)
+    answer_input.setAttribute('oninput', `input_changed(${answer_input.id})`)
     answer_input.style = "width:680px;"
 
     var answer_lbl = document.createElement('label')
@@ -68,9 +68,9 @@ async function button_clicked(title) {
   select.style = "width:680px;"
   for (let i = 1; i <= 4; i++) {
     let option = document.createElement('option')
-    option.setAttribute('id','option'+i)
+    option.setAttribute('id', 'option' + i)
     option.value = i
-    option.textContent = question['Option'+i]
+    option.textContent = question['Option' + i]
     select.appendChild(option)
   }
 
@@ -89,7 +89,9 @@ async function button_clicked(title) {
   submit_btn.setAttribute('id', 'submit_btn')
   submit_btn.setAttribute('class', 'btn btn-primary')
   submit_btn.setAttribute('onclick', 'update_question()')
-  submit_btn.textContent = 'Submit'
+  submit_btn.style.background = '#1d3557';
+  submit_btn.style.color = 'white';
+  submit_btn.textContent = 'Submit';
 
   question_div.appendChild(submit_btn)
   container.appendChild(question_div)
@@ -101,12 +103,17 @@ async function update_question() {
   call('db.update_question', title, answers, correct)
   document.getElementById('question_div').remove()
 }
-function input_changed(element){
-var value = element.value
- document.getElementById(element.id.toLowerCase()).textContent = value
+function input_changed(element) {
+  var value = element.value
+  document.getElementById(element.id.toLowerCase()).textContent = value
 }
-
-function logout() {
-  view_page('login')
-  call('db.logout')
+async function back() {
+  await call('clear')
+  var isAdmin = await call('db.isAdmin')
+  var username = await call('db.getUserName')
+  options = {
+    admin: isAdmin,
+    name: username
+  }
+  view_page('main', options)
 }
