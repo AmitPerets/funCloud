@@ -104,16 +104,28 @@
     top: 50%;
     left: 50%;
   }
-  .home-btn{
+    .home-btn {
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 7%;
     background-color: #1d3557;
     font-size: 30px;
     padding: 6px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;  
+    cursor: pointer;
+  }
+
+  .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
 </style>
@@ -121,6 +133,7 @@
   <div class="main-container">
     <i class="home-btn fa-solid fa-house" onclick="back()"></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <i class="help-btn fa-solid fa-square-question"></i>
     <img src="https://i.ibb.co/MCrFdG6/logo-black-text.png" alt="Company Logo">
     <form>
       <div id="questionDiv" class="form-group"></div>
