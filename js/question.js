@@ -53,7 +53,6 @@ function logout() {
 function end() {
   call('view_timeline');
 }
-
 async function back() {
   await call('clear')
   var isAdmin = await call('db.isAdmin')
