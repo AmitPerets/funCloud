@@ -1,8 +1,10 @@
 (async function createTable() {
-  const response = await callJson('getAllUsers');
-  const tableContainer = document.getElementById('table-container');
+  const usersData = await callJson('db.getAllUsers');
+
+  const tableContainer = document.getElementById('main-container');
   const table = document.createElement('table');
   table.classList.add('user-table');
+
   const headerRow = document.createElement('tr');
   const headers = ['Username', 'Max Points'];
 
@@ -14,9 +16,8 @@
 
   table.appendChild(headerRow);
 
-  Object.entries(usersData).forEach(([username, userData]) => {
+  Object.entries(usersData).forEach(([username, maxPoints]) => {
     const row = document.createElement('tr');
-    const { maxPoints } = userData;
 
     const usernameCell = document.createElement('td');
     usernameCell.textContent = username;
@@ -26,18 +27,20 @@
 
     row.appendChild(usernameCell);
     row.appendChild(maxPointsCell);
+
     table.appendChild(row);
   });
+
   tableContainer.appendChild(table);
 })();
 
 async function back() {
-  await call('clear')
-  var isAdmin = await call('db.isAdmin')
-  var username = await call('db.getUserName')
+  await call('clear');
+  var isAdmin = await call('db.isAdmin');
+  var username = await call('db.getUserName');
   options = {
     admin: isAdmin,
     name: username
-  }
-  view_page('main', options)
+  };
+  view_page('main', options);
 }
