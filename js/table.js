@@ -1,14 +1,34 @@
 (async function createTable() {
-  // Retrieve users' data
-  var usersData = await callJson('users');
+  const response = await callJson('getAllUsers');
+  const tableContainer = document.getElementById('table-container');
+  const table = document.createElement('table');
+  table.classList.add('user-table');
+  const headerRow = document.createElement('tr');
+  const headers = ['Username', 'Max Points'];
 
-  // Sort users based on maxPoints in descending order
-  var sortedUsers = Object.keys(usersData).sort(function (a, b) {
-    return usersData[b].maxPoints - usersData[a].maxPoints;
+  headers.forEach(headerText => {
+    const headerCell = document.createElement('th');
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
   });
 
-  
+  table.appendChild(headerRow);
 
+  Object.entries(usersData).forEach(([username, userData]) => {
+    const row = document.createElement('tr');
+    const { maxPoints } = userData;
+
+    const usernameCell = document.createElement('td');
+    usernameCell.textContent = username;
+
+    const maxPointsCell = document.createElement('td');
+    maxPointsCell.textContent = maxPoints;
+
+    row.appendChild(usernameCell);
+    row.appendChild(maxPointsCell);
+    table.appendChild(row);
+  });
+  tableContainer.appendChild(table);
 })();
 
 async function back() {
