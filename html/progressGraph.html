@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"
+  integrity="sha512-uaZ0UXmB7NHxAxQawA8Ow2wWjdsedpRu7nJRSoI2mjnwtY8V5YiCWavoIpo1AhWPMLiW5iEeavmA3JJ2+1idUg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -9,15 +11,6 @@
     background-color: #f2f2f2;
     margin-top: 20px;
     text-align: center;
-  }
-
-  img {
-    width: 180px;
-    height: auto;
-    padding-bottom: 20px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .main-container {
@@ -31,13 +24,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
-  #table{
-    width:100%;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+
   #logout-btn {
     position: absolute;
     top: 5%;
@@ -50,18 +37,56 @@
     cursor: pointer;
   }
 
-.btn-back {
-  text-align:center;
-  background-color:#8c03fc;
-  color:white;
-  height: 45px;
-  margin-top: 50px;
+  .help-btn {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    background-color: orange;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .phone-number {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 160px;
+    padding: 5px;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: cursive;
+    transform: translateY(-50%);
+  }
+
+  .help-btn:hover .phone-number {
+    display: block;
+  }
+
+  .text {
+    color: white;
+    /* Set the text color to white */
   }
 </style>
 
+
 <div id="main" style="height: 680px">
   <div class="main-container">
-    <canvas id="table"></canvas>
-    <button type="button" class="btn btn-back" onclick="back()">Back to main</button>
+    <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
+    <i class="help-btn fa-solid fa-circle-question">
+  <span class="phone-number">For help, please call +972504934856</span></i>
+
+    <head>
+      <title>User Session Progress</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+      <canvas id="sessionChart" width="400" height="200"></canvas>
+    </body>
   </div>
 </div>
