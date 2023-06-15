@@ -22,7 +22,6 @@ async function checkAnswer(btn, correct) {
   var correct_btn = document.getElementById('Option' + correct);
   var type;
   if (btn.id === correct_btn.id) {
-    await call('db.setPoints');
     btn.style.backgroundColor = "green";
     type = "correct-answer";
   } else {
@@ -56,11 +55,8 @@ function end() {
 }
 async function back() {
   await call('clear')
-  var isAdmin = await call('db.isAdmin')
-  var username = await call('db.getUserName')
-  options = {
-    admin: isAdmin,
-    name: username
-  }
-  view_page('main', options)
+    var user = await callJson("db.getUser");
+    console.log(user);
+    view_page("main", user);
 }
+
