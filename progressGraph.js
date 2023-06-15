@@ -1,46 +1,25 @@
-(async function createTable() {
-  const usersData = await callJson('db.getAllUsers');
+// JSON data
+var userSessions = await callJson("db.getUserSessions");
 
-  const tableContainer = document.getElementById('main-container');
-  const table = document.createElement('table');
-  table.classList.add('user-table');
-
-  const headerRow = document.createElement('tr');
-  const headers = ['Username', 'Max Points'];
-
-  headers.forEach(headerText => {
-    const headerCell = document.createElement('th');
-    headerCell.textContent = headerText;
-    headerRow.appendChild(headerCell);
-  });
-
-  table.appendChild(headerRow);
-
-  Object.entries(usersData).forEach(([username, maxPoints]) => {
-    const row = document.createElement('tr');
-
-    const usernameCell = document.createElement('td');
-    usernameCell.textContent = username;
-
-    const maxPointsCell = document.createElement('td');
-    maxPointsCell.textContent = maxPoints;
-
-    row.appendChild(usernameCell);
-    row.appendChild(maxPointsCell);
-
-    table.appendChild(row);
-  });
-
-  tableContainer.appendChild(table);
-})();
-
-async function back() {
-  await call('clear');
-  var isAdmin = await call('db.isAdmin');
-  var username = await call('db.getUserName');
-  options = {
-    admin: isAdmin,
-    name: username
-  };
-  view_page('main', options);
-}
+// Create a chart using Chart.js
+var ctx = document.getElementById('sessionChart').getContext('2d');
+var chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: users,
+    datasets: [{
+      label: 'Sessions',
+      data: userSessions,
+      backgroundColor: 'rgba(75, 192, 192, 0.5)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
