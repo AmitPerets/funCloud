@@ -1,5 +1,5 @@
 (async function gen() {
-  var user = await callJson("db.getUserName"); // Specify the user for which you want to display sessions
+  var user = await call("db.getUserName"); // Specify the user for which you want to display sessions
   var userSessions = await callJson("db.getUserSessions");
 
   // Create a chart using Chart.js
@@ -7,9 +7,8 @@
   var chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: user,
       datasets: [{
-        label: 'Sessions',
+        label: user + "'s sessions:",
         data: userSessions,
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
         borderColor: 'rgba(75, 192, 192, 1)',
@@ -20,6 +19,16 @@
       scales: {
         y: {
           beginAtZero: true
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 25,
+              family: 'cursive'
+            }
+          }
         }
       }
     }
