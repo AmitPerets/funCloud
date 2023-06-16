@@ -22,7 +22,7 @@
           labels: {
             font: {
               size: 25,
-              family: 'cursive'
+              family:'cursive'
             }
           }
         }
