@@ -10,8 +10,7 @@
       datasets: [{
         label: user+"'s sessions:",
         data: userSessions,
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        borderColor: 'rgb(75, 192, 192)',
         borderWidth: 1
       }]
     },
