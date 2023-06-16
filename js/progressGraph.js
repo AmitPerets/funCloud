@@ -7,7 +7,7 @@
   var chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: userSessions.map((s, i) => { return "session " + i+1 }), // Corrected property name
+      labels: userSessions.map((s, i) => { return "session " + (i + 1) }),
       datasets: [{
         label: user + "'s sessions:",
         data: userSessions,
