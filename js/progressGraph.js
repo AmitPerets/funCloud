@@ -1,7 +1,7 @@
 (async function gen() {
   var user = await call("db.getUserName"); // Specify the user for which you want to display sessions
   var userSessions = await callJson("db.getUserSessions");
-  console.log(userSessions.map((s, i+1) => { return i }));
+  console.log(userSessions.map((s, i) => { return i }));
   // Create a chart using Chart.js
   var ctx = document.getElementById('sessionChart').getContext('2d');
   var chart = new Chart(ctx, {
