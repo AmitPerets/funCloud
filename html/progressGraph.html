@@ -37,19 +37,6 @@
     cursor: pointer;
   }
 
-
-  .home-btn {
-    position: absolute;
-    top: 5%;
-    left: 7%;
-    background-color: #1d3557;
-    font-size: 30px;
-    padding: 6px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
   .help-btn {
     position: absolute;
     top: 5%;
@@ -84,12 +71,21 @@
     color: white;
     /* Set the text color to white */
   }
+
+  .btn-back {
+    background-color: #8c03fc;
+    color: white;
+    height: 45px;
+    margin-top: 50px;
+    position: fixed;
+    top: 80%;
+    left: 44%
+  }
 </style>
 
 
 <div id="main" style="height: 680px">
   <div class="main-container">
-    <i class="home-btn fa-solid fa-house" onclick="back()"></i>
     <i class="help-btn fa-solid fa-circle-question">
   <span class="phone-number">For help, please call +972504934856</span></i>
     <i id="logout-btn" class="fa-solid fa-arrow-right-from-bracket" onclick="logout()"></i>
@@ -98,8 +94,10 @@
       <title>User Session Progress</title>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
+
     <body>
-      <canvas id="sessionChart" width="400" height="200" style="top: 15%; transform: translateY(15%);"></canvas>
+      <canvas id="sessionChart" width="380" height="175" style="top: 15%; transform: translateY(15%);"></canvas>
+      <button type="button" class="btn btn-back" onclick="back()">Back to main</button>
     </body>
 
   </div>
