@@ -6,7 +6,7 @@ var question;
   if (question == null) {
     call('view_timeline');
   }
-var str = `
+  var str = `
     <label for="questionDiv">${question.title}</label>`;
   for (let i = 1; i <= 4; i++) {
     str += `
@@ -55,8 +55,14 @@ function end() {
 }
 async function back() {
   await call('clear')
-    var user = await callJson("db.getUser");
-    console.log(user);
-    view_page("main", user);
+  var user = await callJson("db.getUser");
+  console.log(user);
+  view_page("main", user);
 }
 
+async function get_score() {
+  var points = await call("get_score");
+  document.getElementById("current-points").textContent = points;
+}
+
+get_score();
