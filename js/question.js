@@ -1,5 +1,5 @@
 var question;
-
+points = get_score();
 (async function gen() {
   var question_div = document.getElementById('questionDiv');
   question = await callJson('generate_question');
@@ -16,6 +16,7 @@ var question;
   question_div.innerHTML = str;
   document.querySelector(".progress").classList.toggle('d-none');
   document.querySelector(".finish-btn").classList.toggle('d-none');
+ document.querySelector(".points-square").classList.toggle('d-none');
 })();
 
 async function checkAnswer(btn, correct) {
@@ -65,4 +66,4 @@ async function get_score() {
   document.getElementById("current-points").textContent = points;
 }
 
-get_score();
+
